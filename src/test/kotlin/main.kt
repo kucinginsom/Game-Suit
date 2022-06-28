@@ -8,7 +8,7 @@ fun main(){
 fun initiazeGame(){
     var gameSuit = arrayListOf<String>("Hopimpa", "Suit Jepang", "Suit Standar")
     println("==========================")
-    println("GAMETERMINAL VERSION")
+    println("GAMETERMINAL VERSION");2
     println("==========================")
     println("Pilih Game:")
     for((index, suit) in gameSuit.withIndex()){
@@ -22,6 +22,11 @@ fun chooseGame(pilihan: String = "0"){
             val hopimpa = Hopimpa()
             hopimpa.startGame()
         }
+        "2", "Suit Jepang" -> {
+            val suitjepang = Suitjepang()
+            suitjepang.startGame()
+        }
+
         else -> {
             println("Game lain belum terdaftar.")
         }
