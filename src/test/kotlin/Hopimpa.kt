@@ -3,10 +3,9 @@ class Hopimpa : Suit("Hopimpa") {
     fun startGame(){
         val totalPlayer = 3
         getInputResult(totalPlayer)
-
     }
     fun getInputResult(player:Int = 2){
-        var array = arrayListOf<String>()
+        val array = arrayListOf<String>()
         for(index in 1..player){
             println("masukan untuk player $index")
             val hasilInput = readLine() ?: "0"
