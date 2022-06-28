@@ -23,7 +23,7 @@ fun chooseGame(pilihan: String = "0"){
             hopimpa.startGame()
         }
         else -> {
-            println("Permainan lain belum terdaftar.")
+            println("Game lain belum terdaftar.")
         }
     }
 }
