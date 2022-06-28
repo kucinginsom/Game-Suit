@@ -2,16 +2,17 @@ class Hopimpa : Suit("Hopimpa") {
 
     fun startGame(){
         val totalPlayer = 3
-        getInputResult(totalPlayer)
+        val arrayResult = getInputResult(totalPlayer)
+        getResultGame(arrayResult)
     }
-    fun getInputResult(player:Int = 2){
+    fun getInputResult(player:Int = 2) : List<String> {
         val array = arrayListOf<String>()
         for(index in 1..player){
             println("masukan untuk player $index")
             val hasilInput = readLine() ?: "0"
             array.add(hasilInput)
         }
-        getResultGame(array)
+        return array
     }
 
     fun getResultGame(inputResult : List<String>){
@@ -25,8 +26,8 @@ class Hopimpa : Suit("Hopimpa") {
             putih == 3 -> getDrawResult()
             else -> println("NO RESULT !")
         }
-
     }
+
 
     fun getDrawResult(){
         println("Hasil: ")
