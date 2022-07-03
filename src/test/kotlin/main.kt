@@ -20,6 +20,10 @@ fun chooseGame(pilihan: String = "0"){
             val hopimpa = Hopimpa(gameSuit[0])
             hopimpa.startGame()
         }
+        "3", "Suit Standar" -> {
+            val suitStandar = SuitStandar()
+            suitStandar.startGame()
+        }
         else -> {
             println("Game lain belum terdaftar.")
         }
