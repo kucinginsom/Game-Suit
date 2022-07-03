@@ -1,7 +1,7 @@
 private val gameSuit = arrayListOf<String>("Hopimpa", "Suit Jepang", "Suit Standar")
 fun main(){
     initiazeGame()
-    println("Pilihan: ")
+    print("Pilihan: ")
     val pilihan = readLine() ?: "0"
     chooseGame(pilihan)
 }

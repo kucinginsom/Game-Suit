@@ -12,7 +12,7 @@ class Hopimpa(game: String = "Hopimpa") : Suit(game) {
         val array = arrayListOf<String>()
         for(index in 1..totalPlayer){
             do {
-                println("Masukan untuk player $index")
+                print("Masukan untuk player $index : ")
                 val hasilInput = readLine() ?: "0"
                 val isContain = gameProp.filter { it.equals(hasilInput, ignoreCase = true) }.isEmpty()
                 if(!isContain) array.add(hasilInput)
