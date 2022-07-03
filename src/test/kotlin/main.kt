@@ -21,7 +21,7 @@ fun chooseGame(pilihan: String = "0"){
             hopimpa.startGame()
         }
         "3", "Suit Standar" -> {
-            val suitStandar = SuitStandar()
+            val suitStandar = SuitStandar(gameSuit[2])
             suitStandar.startGame()
         }
         else -> {

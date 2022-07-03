@@ -1,7 +1,7 @@
-class SuitStandar : Suit("Suit Standar") {
-    val JEMPOL = "jempol";
-    val TELUNJUK = "telunjuk";
-    val KELINGKING = "kelingking";
+class SuitStandar(game: String = "Suit Standar") : Suit(game) {
+    private val JEMPOL = "jempol";
+    private val TELUNJUK = "telunjuk";
+    private val KELINGKING = "kelingking";
 
     fun startGame() {
         print("Nama Player 1: ")
@@ -33,12 +33,7 @@ class SuitStandar : Suit("Suit Standar") {
         }
 
         getResult(playerOneChoice, playerTwoChoice, playerOneName, playerTwoName)
-
-        print("Mau main lagi? (y/n) ")
-        val shouldRestart = readLine();
-        if (shouldRestart != null) {
-            restartGame(shouldRestart)
-        };
+        restartGame()
     }
 
     fun isValidInput(input:String): Boolean {
@@ -52,6 +47,7 @@ class SuitStandar : Suit("Suit Standar") {
         println("***************************")
         if (isDraw(playerOneChoice, playerTwoChoice)) {
             println("SERI")
+            getDrawResult()
         } else if (isPlayerOneWin(playerOneChoice, playerTwoChoice)) {
             println("${playerOneName.uppercase()} MENANG!")
         } else {
@@ -83,14 +79,15 @@ class SuitStandar : Suit("Suit Standar") {
         return false
     }
 
-    fun restartGame(input: String) {
-        if (input == "y") {
+    override fun restartGame() {
+        print("Mau main lagi? (y/n) ")
+        val shouldRestart = readLine();
+        if (shouldRestart == "y") {
             startGame();
         } else {
             println("**********************************")
             println("Terimakasih! Sampai jumpa lagi :)")
             println("**********************************")
-
         }
     }
 
