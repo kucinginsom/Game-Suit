@@ -4,11 +4,10 @@ abstract class Suit(val game: String ) {
     }
     fun resultGameWin(player: Int, description: String){
         var playerWin = player+1
-        playerWin = playerWin ?: 1
         println("Hasil: ")
         println("Pemain: $playerWin $description")
     }
-    fun getDrawResult(){
+    open fun getDrawResult(){
         println("Hasil: ")
         println("DRAW")
     }

@@ -1,4 +1,4 @@
-class Hopimpa : Suit("Hopimpa") {
+class Hopimpa(game: String = "Hopimpa") : Suit(game) {
     private val totalPlayer = 3
     private val gameProp = arrayListOf<String>("hitam", "putih")
     private val confirmation = arrayListOf<String>("yes", "ya", "y")
@@ -22,14 +22,21 @@ class Hopimpa : Suit("Hopimpa") {
         return array
     }
     fun getResultGame(inputResult : List<String>){
-        val hitam = inputResult.count { it.equals(gameProp[0], ignoreCase = true) }
-        val putih = inputResult.count { it.equals(gameProp[1], ignoreCase = true) }
-
+        val (propHitam,PropPutih) = gameProp
+        val hitam = inputResult.count { it.equals(propHitam, ignoreCase = true) }
+        val putih = inputResult.count { it.equals(PropPutih, ignoreCase = true) }
         when{
-            hitam == 1 && putih > 1 -> resultGameWin(inputResult.indexOfFirst { it.equals("hitam",ignoreCase = true) }, "Tereliminasi!")
-            putih == 1 && hitam > 1  -> resultGameWin(inputResult.indexOfFirst { it.equals("putih",ignoreCase = true) }, "Tereliminasi")
+            hitam == 1 && putih > 1 -> getResultGame(inputResult, propHitam)
+            putih == 1 && hitam > 1  -> getResultGame(inputResult, PropPutih)
             else -> getDrawResult()
         }
+    }
+    fun getResultGame(inputResult : List<String>, prop : String){
+        resultGameWin(inputResult.indexOfFirst { it.equals(prop,ignoreCase = true) }, "Tereliminasi!")
+    }
+    override fun getDrawResult(){
+        println("Hasil: ")
+        println("Tidak ada pemain yang tereliminasi")
     }
     override fun restartGame(){
         println("Restart Game ? [yes/no]")
@@ -37,5 +44,4 @@ class Hopimpa : Suit("Hopimpa") {
         val confirm = confirmation.filter { it.equals(restartGame, ignoreCase = true) }.isNotEmpty()
         if(confirm) main()
     }
-
 }
