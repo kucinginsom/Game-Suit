@@ -24,6 +24,10 @@ fun chooseGame(pilihan: String = "0"){
             val suitStandar = SuitStandar(gameSuit[2])
             suitStandar.startGame()
         }
+        "2", "Suit Jepang" -> {
+            val suitjepang = Suitjepang(gameSuit[1])
+            suitjepang.startGame()
+        }
         else -> {
             println("Game lain belum terdaftar.")
         }
